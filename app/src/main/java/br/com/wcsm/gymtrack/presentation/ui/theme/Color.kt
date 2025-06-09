@@ -1,4 +1,4 @@
-package br.com.wcsm.gymtrack.ui.theme
+package br.com.wcsm.gymtrack.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package br.com.wcsm.gymtrack.ui.theme
+package br.com.wcsm.gymtrack.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
