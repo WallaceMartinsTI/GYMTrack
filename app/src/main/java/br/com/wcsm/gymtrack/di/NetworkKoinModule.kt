@@ -1,9 +1,5 @@
 package br.com.wcsm.gymtrack.di
 
-import br.com.wcsm.gymtrack.presentation.MainActivity
-import org.koin.androidx.viewmodel.dsl.viewModelOf
-import org.koin.core.module.dsl.singleOf
-import org.koin.dsl.bind
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -14,14 +10,14 @@ object NetworkKoinModule : KoinModule {
             provideRetrofit()
         }
 
-        single<MainActivity.JsonPlaceholder> {
+        /*single<MainActivity.JsonPlaceholder> {
             get<Retrofit>().create(MainActivity.JsonPlaceholder::class.java)
         }
 
         // For test
         singleOf(MainActivity::JsonPlaceholderRepositoryImpl) bind MainActivity.JsonPlaceholderRepository::class
 
-        viewModelOf(MainActivity::JsonPlaceViewModel)
+        viewModelOf(MainActivity::JsonPlaceViewModel)*/
     }
 
     private fun provideRetrofit(): Retrofit {

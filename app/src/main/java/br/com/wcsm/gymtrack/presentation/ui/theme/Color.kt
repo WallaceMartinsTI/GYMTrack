@@ -9,3 +9,20 @@ val Pink80 = Color(0xFFEFB8C8)
 val Purple40 = Color(0xFF6650a4)
 val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
+
+/* GYM Track Colors */
+val WhiteColor =  Color(0xFFFFFFFF)
+val BlackColor = Color(0xFF000000)
+val GrayColor = Color(0xFF4B4545)
+val Gray04Color = Color(0xFFB2B2B2)
+
+val PrimaryColor = Color(0xFFFF6F00)
+val PrimaryContainerColor =  Color(0xFFFFE0B2)
+val BackgroundColor =  Color(0xFF1E1E1E)
+val OutlineColor =  Color(0xFF555555)
+
+val OnPrimaryColor = WhiteColor
+val OnBackgroundColor = Color(0xFFE0DADA)
+
+val ErrorColor = Color(0xFFCF6679)
+val WarningColor = Color(0xFFFFC107)
