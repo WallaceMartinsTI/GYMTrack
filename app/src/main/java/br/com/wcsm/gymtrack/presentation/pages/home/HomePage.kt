@@ -1,13 +1,15 @@
 package br.com.wcsm.gymtrack.presentation.pages.home
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import br.com.wcsm.gymtrack.presentation.atomic.atoms.TextAtom
-import br.com.wcsm.gymtrack.presentation.pages.signin.viewmodel.SignInViewModel
-import org.koin.androidx.compose.koinViewModel
+import br.com.wcsm.gymtrack.presentation.atomic.templates.HomeTemplate
 
 @Composable
 fun HomePage(
 ) {
-    TextAtom("Home Page")
+    HomeTemplate(
+        isPageLoading = false,
+        workouts = emptyList(),
+        onWorkoutClick = {},
+        onAddWorkoutClick = {}
+    )
 }

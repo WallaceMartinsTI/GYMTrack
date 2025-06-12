@@ -16,7 +16,8 @@ fun AppNavigation(isFirstTimeAppRunning: Boolean) {
 
     NavHost(
         navController = navController,
-        startDestination = Route.Welcome
+        startDestination = Route.SignIn
+        //startDestination = Route.Welcome
     ) {
         composable<Route.Welcome> {
             WelcomePage(onContinueClick = { navController.navigate(Route.SignIn) })

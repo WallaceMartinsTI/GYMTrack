@@ -4,6 +4,7 @@
     <!-- General -->
     <string name="continue_text">continuar</string>
     <string name="back_text">voltar</string>
+    <string name="add_text">adicionar</string>
     <string name="loading_text">Carregando...</string>
     <string name="email_label">E-mail</string>
     <string name="email_placeholder">Digite seu e-mail</string>
@@ -41,6 +42,11 @@
     <string name="signup_confirm_password_label">Confirmar senha</string>
     <string name="signup_confirm_password_placeholder">Repita sua senha</string>
 
+    <!-- Home Page -->
+    <string name="home_welcome_message">Seja bem vindo,</string>
+    <string name="home_empty_workouts_message">Você ainda não tem treinos.</string>
+    <string name="home_workout_organism_exercises_counter_text">Exercícios: %d</string>
+
     <!-- Descriptions -->
     <string name="gym_track_logo_description">Logo do aplicativo GYM Track</string>
     <string name="keyboard_arrow_right_icon_description">Ícone de seta para a direita</string>
@@ -54,4 +60,9 @@
     <string name="save_icon_description">Ícone de salvar</string>
     <string name="person_icon_description">Ícone de pessoa</string>
     <string name="arrow_back_ios_new_icon_description">Ícone de voltar</string>
+    <string name="logout_icon_description">Ícone de logout</string>
+    <string name="not_interested_icon_description">Ícone de indisponível</string>
+    <string name="add_icon_description">Ícone de adicionar</string>
+
+    <string name="workout_image_description">Foto do treino</string>
 </resources>
