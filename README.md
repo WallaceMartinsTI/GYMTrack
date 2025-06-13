@@ -1,12 +1,18 @@
 <h1 align="center">
   <p align="center">GYM Track</p>
 
+![app_icon](https://github.com/user-attachments/assets/f6a59c0e-1613-462a-a603-6b507975ba41)
+
 ## 💻 Projeto
 
 GYM Track é um aplicativo Android que permite aos usuários ter um controle sobre suas atividades físicas,  
 podendo adicionar treinos e em cada treino, adicionar diversos exercícios. O app conta com um sistema de login 
 em que cada usuário tem acesso a sseus prórios treinos e exercícios, exibe a lista de treinos na tela principal 
 e na tela de cada treino, exibe a lista dos exercícios.
+
+![GYM Track Demo](https://github.com/user-attachments/assets/6024d02f-f226-410b-851c-82ec98c407ba)
+
+https://github.com/user-attachments/assets/bc23e0af-4d90-422e-b09f-2f49139003d9
 
 </h1>
 
