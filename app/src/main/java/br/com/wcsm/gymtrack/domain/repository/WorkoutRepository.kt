@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface WorkoutRepository {
     suspend fun getWorkouts(userId: String): Flow<BaseResponse<List<Workout>>>
-    suspend fun addWorkout(userId: String, workout: Workout): Flow<BaseResponse<Boolean>>
+    suspend fun saveWorkout(userId: String, workout: Workout): Flow<BaseResponse<Boolean>>
     suspend fun updateWorkout(userId: String, workout: Workout): Flow<BaseResponse<Boolean>>
     suspend fun deleteWorkout(userId: String, workoutId: String): Flow<BaseResponse<Boolean>>
 }

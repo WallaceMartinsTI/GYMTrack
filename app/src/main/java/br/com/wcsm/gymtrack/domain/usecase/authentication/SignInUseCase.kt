@@ -1,4 +1,4 @@
-package br.com.wcsm.gymtrack.domain.usecase.signin
+package br.com.wcsm.gymtrack.domain.usecase.authentication
 
 import br.com.wcsm.gymtrack.domain.model.BaseResponse
 import kotlinx.coroutines.flow.Flow

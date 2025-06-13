@@ -26,3 +26,9 @@ val OnBackgroundColor = Color(0xFFE0DADA)
 
 val ErrorColor = Color(0xFFCF6679)
 val WarningColor = Color(0xFFFFC107)
+
+val ShimmerColor = listOf(
+    Color(0xFF242135),
+    Color(0xFF312E48),
+    Color(0xFF242135),
+)

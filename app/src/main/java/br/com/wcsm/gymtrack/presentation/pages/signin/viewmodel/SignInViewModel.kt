@@ -2,7 +2,7 @@ package br.com.wcsm.gymtrack.presentation.pages.signin.viewmodel
 
 import androidx.lifecycle.viewModelScope
 import br.com.wcsm.gymtrack.domain.model.BaseResponse
-import br.com.wcsm.gymtrack.domain.usecase.signin.SignInUseCase
+import br.com.wcsm.gymtrack.domain.usecase.authentication.SignInUseCase
 import br.com.wcsm.gymtrack.presentation.model.BaseFlowViewModel
 import br.com.wcsm.gymtrack.utils.UnitCallback
 import kotlinx.coroutines.Dispatchers

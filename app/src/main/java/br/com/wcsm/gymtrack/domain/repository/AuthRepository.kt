@@ -5,7 +5,7 @@ import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.flow.Flow
 
 interface AuthRepository {
-    val currentUser: FirebaseUser?
+    suspend fun getCurrentUser(): Flow<BaseResponse<String>>
 
     suspend fun signUp(
         userName: String,

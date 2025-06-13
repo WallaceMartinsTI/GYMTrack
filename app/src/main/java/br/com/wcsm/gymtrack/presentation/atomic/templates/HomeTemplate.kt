@@ -49,12 +49,13 @@ fun HomeTemplate(
     isPageLoading: Boolean,
     workouts: List<Workout>,
     onWorkoutClick: (Workout) -> Unit,
-    onAddWorkoutClick: UnitCallback
+    onAddWorkoutClick: UnitCallback,
+    onSignOutClick: UnitCallback
 ) {
     Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
         HomeHeader(
             userName = "Wallace",
-            onSignOutClick = {},
+            onSignOutClick = onSignOutClick,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -87,6 +88,7 @@ fun HomeTemplate(
                         key = { it.id }
                     ) { workout ->
                         WorkoutOrganism(
+                            isLoading = isPageLoading,
                             workout = workout,
                             onWorkoutClick = onWorkoutClick
                         )
@@ -129,7 +131,8 @@ private fun HomeTemplatePreview() {
         isPageLoading = false,
         workouts = workouts,
         onWorkoutClick = {},
-        onAddWorkoutClick = {}
+        onAddWorkoutClick = {},
+        onSignOutClick = {}
     )
 }
 

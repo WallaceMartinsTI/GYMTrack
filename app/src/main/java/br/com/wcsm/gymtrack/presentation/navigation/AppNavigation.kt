@@ -1,55 +1,66 @@
 package br.com.wcsm.gymtrack.presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.wcsm.gymtrack.domain.model.Workout
 import br.com.wcsm.gymtrack.presentation.pages.home.HomePage
-import br.com.wcsm.gymtrack.presentation.pages.signin.SignInPage
-import br.com.wcsm.gymtrack.presentation.pages.signup.SignUpMessagePage
-import br.com.wcsm.gymtrack.presentation.pages.signup.SignUpPage
-import br.com.wcsm.gymtrack.presentation.pages.welcome.WelcomePage
+import br.com.wcsm.gymtrack.presentation.pages.workout.WorkoutFormPage
+import br.com.wcsm.gymtrack.presentation.pages.workout.WorkoutPage
+import br.com.wcsm.gymtrack.presentation.pages.workout.viewmodel.WorkoutViewModel
+import br.com.wcsm.gymtrack.utils.commonNavComposable
+import br.com.wcsm.gymtrack.utils.decodeStringInKObject
+import br.com.wcsm.gymtrack.utils.encodeKObjectInString
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun AppNavigation(isFirstTimeAppRunning: Boolean) {
+fun NavGraphBuilder.AppNavigation(
+    authNavController: NavController
+) {
     val navController = rememberNavController()
+
+    val workoutViewModel: WorkoutViewModel = koinViewModel()
 
     NavHost(
         navController = navController,
-        startDestination = Route.SignIn
-        //startDestination = Route.Welcome
+        startDestination = Route.Home
     ) {
-        composable<Route.Welcome> {
-            WelcomePage(onContinueClick = { navController.navigate(Route.SignIn) })
-        }
-
-        composable<Route.SignIn> {
-            SignInPage(
-                onNavigateToHome = { navController.navigate(Route.Home) },
-                onNavigateToSignUp = { navController.navigate(Route.SignUpMessage) }
-            )
-        }
-
-        composable<Route.SignUpMessage> {
-            SignUpMessagePage(
-                onContinueClick = {
-                    navController.navigate(Route.SignUp) {
-                        popUpTo(Route.SignUpMessage) { inclusive = true }
-                    }
+        commonNavComposable<Route.Home> {
+            HomePage(
+                workoutViewModel = workoutViewModel,
+                onNavigateToWorkout = { workout ->
+                    navController.navigate(Route.Workout(workout.encodeKObjectInString()))
                 },
-                onBackClick = { navController.popBackStack() }
+                onNavigateToAddWorkout = { navController.navigate(Route.WorkoutForm("")) },
+                onSignOutUser = { authNavController.navigate(AuthRoute.SignIn) }
             )
         }
 
-        composable<Route.SignUp> {
-            SignUpPage(
-                onSignUpSuccess = { navController.popBackStack() },
-                onBackPressed = { navController.popBackStack() }
-            )
+        commonNavComposable<Route.Workout> {
+            val workoutParam = if(workout.isBlank()) null else workout.decodeStringInKObject<Workout>()
+
+            workoutParam?.let {
+                WorkoutPage(
+                    workout = workoutParam,
+                    workoutViewModel = workoutViewModel,
+                    onEditWorkout = { workout ->
+                        navController.navigate(Route.WorkoutForm(workout.encodeKObjectInString()))
+                    },
+                    onBackClick = { navController.popBackStack() }
+                )
+            }
         }
 
-        composable<Route.Home> {
-            HomePage()
+        commonNavComposable<Route.WorkoutForm> {
+            val workoutParam = if(workout.isBlank()) null else workout.decodeStringInKObject<Workout>()
+
+            WorkoutFormPage(
+                workout = workoutParam,
+                workoutViewModel = workoutViewModel,
+                onNavigateUp = { navController.navigateUp() }
+            )
         }
     }
 }

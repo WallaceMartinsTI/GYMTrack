@@ -20,8 +20,21 @@ class AuthRepositoryImpl(
     private val firebaseAuth: FirebaseAuth,
     private val firebaseFirestore: FirebaseFirestore
 ) : AuthRepository {
-    override val currentUser: FirebaseUser?
-        get() = firebaseAuth.currentUser
+    override suspend fun getCurrentUser(): Flow<BaseResponse<String>> = flow {
+        emit(BaseResponse.Loading)
+
+        try {
+            val currentUser = firebaseAuth.currentUser
+            if(currentUser != null) {
+                emit(BaseResponse.Success(currentUser.uid))
+            } else {
+                emit(BaseResponse.Error("Não existe um usuário logado."))
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            emit(BaseResponse.Error("Erro ao buscar usuário logado, tente novamente mais tarde."))
+        }
+    }
 
     override suspend fun signUp(
         userName: String,

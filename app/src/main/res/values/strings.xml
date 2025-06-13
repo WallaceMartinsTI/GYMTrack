@@ -10,6 +10,10 @@
     <string name="email_placeholder">Digite seu e-mail</string>
     <string name="password_label">Senha</string>
     <string name="password_placeholder">Digite sua senha</string>
+    <string name="try_again_text">Tentar Novamente</string>
+    <string name="oops_error_label">Oops…</string>
+    <string name="delete_text">excluir</string>
+    <string name="cancel_text">cancelar</string>
 
     <!-- Welcome Page -->
     <string name="welcome_message_1">🏋️‍♂️ Bem-vindo ao GYM Track!</string>
@@ -47,6 +51,25 @@
     <string name="home_empty_workouts_message">Você ainda não tem treinos.</string>
     <string name="home_workout_organism_exercises_counter_text">Exercícios: %d</string>
 
+    <!-- Workout Form -->
+    <string name="workout_form_add_workout_page_title">Adicionar Treino</string>
+    <string name="workout_form_add_workout_page_message">Preencha os dados do seu novo treino!</string>
+    <string name="workout_form_update_workout_page_title">Atualizar Treino</string>
+    <string name="workout_form_update_workout_page_message">Atualize os dados do seu treino!</string>
+    <string name="workout_form_delete_button_text">Excluir Treino</string>
+    <string name="workout_form_delete_dialog_message">Você tem certeza que deseja excluir o treino %s ?</string>
+    <string name="workout_form_title_label">Treino</string>
+    <string name="workout_form_title_placeholder">Digite o título do treino</string>
+    <string name="workout_form_description_label">Descrição</string>
+    <string name="workout_form_description_placeholder">Digite a descrição do treino</string>
+    <string name="workout_form_save_workout_text">Salvar Treino</string>
+    <string name="workout_form_update_workout_text">Atualizar Treino</string>
+
+    <!-- Sign Out -->
+    <string name="sign_out_dialog_message">Deseja sair do app ou encerrar sua sessão?</string>
+    <string name="sign_out_dialog_finish_session">Encerrar Sessão</string>
+    <string name="sign_out_dialog_exit_app">Sair do App</string>
+
     <!-- Descriptions -->
     <string name="gym_track_logo_description">Logo do aplicativo GYM Track</string>
     <string name="keyboard_arrow_right_icon_description">Ícone de seta para a direita</string>
@@ -63,6 +86,11 @@
     <string name="logout_icon_description">Ícone de logout</string>
     <string name="not_interested_icon_description">Ícone de indisponível</string>
     <string name="add_icon_description">Ícone de adicionar</string>
+    <string name="error_outline_icon_descriptiob">Ícone de erro</string>
+    <string name="edit_icon_description">Ícone de erro</string>
+    <string name="delete_icon_description">Ícone de deletar</string>
+    <string name="sports_gymnastics_icon_description">Ícone de esportes</string>
+    <string name="notes_icon_description">Ícone de anotações</string>
 
     <string name="workout_image_description">Foto do treino</string>
 </resources>

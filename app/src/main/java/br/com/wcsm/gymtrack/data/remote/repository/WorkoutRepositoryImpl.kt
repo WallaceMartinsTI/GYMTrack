@@ -13,6 +13,7 @@ class WorkoutRepositoryImpl(
 ) : WorkoutRepository {
     override suspend fun getWorkouts(userId: String): Flow<BaseResponse<List<Workout>>> = flow {
         emit(BaseResponse.Loading)
+
         try {
             val snapshot = firebaseFirestore
                 .collection("users")
@@ -29,7 +30,7 @@ class WorkoutRepositoryImpl(
         }
     }
 
-    override suspend fun addWorkout(
+    override suspend fun saveWorkout(
         userId: String,
         workout: Workout
     ): Flow<BaseResponse<Boolean>> = flow {

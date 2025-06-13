@@ -1,7 +1,9 @@
 package br.com.wcsm.gymtrack.di
 
 import br.com.wcsm.gymtrack.data.remote.repository.AuthRepositoryImpl
+import br.com.wcsm.gymtrack.data.remote.repository.WorkoutRepositoryImpl
 import br.com.wcsm.gymtrack.domain.repository.AuthRepository
+import br.com.wcsm.gymtrack.domain.repository.WorkoutRepository
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -16,5 +18,6 @@ object FirebaseKoinModule : KoinModule {
         single { FirebaseStorage.getInstance() }
 
         singleOf(::AuthRepositoryImpl) bind AuthRepository::class
+        singleOf(::WorkoutRepositoryImpl) bind WorkoutRepository::class
     }
 }
