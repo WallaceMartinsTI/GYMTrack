@@ -39,7 +39,8 @@ class WorkoutViewModel(
         title = "",
         titleErrorMessage = "",
         description = "",
-        descriptionErrorMessage = ""
+        descriptionErrorMessage = "",
+        selectedWorkout = null
     ) }
 
     fun setActionSuccessMessage(message: String) = _uiState.update { state -> state.copy(actionSuccessMessage = message) }
@@ -146,22 +147,20 @@ class WorkoutViewModel(
         }
     }
     
-    fun updateWorkout() {
+    fun updateWorkout(workout: Workout) {
         val currentUserId = uiState.value.currentUserId
         currentUserId?.let {
-            uiState.value.selectedWorkout?.let { workout ->
-                viewModelScope.launch(Dispatchers.IO) {
-                    updateWorkoutUseCase(
-                        userId = currentUserId,
-                        workout = workout
-                    ).collect { result ->
-                        when(result) {
-                            is BaseResponse.Loading -> onLoadingResponse()
-                            is BaseResponse.Error -> onErrorResponse(result.errorMessage)
-                            is BaseResponse.Success -> onSuccessResponse(
-                                crudAction = CRUDAction.UPDATE
-                            ) {}
-                        }
+            viewModelScope.launch(Dispatchers.IO) {
+                updateWorkoutUseCase(
+                    userId = currentUserId,
+                    workout = workout
+                ).collect { result ->
+                    when(result) {
+                        is BaseResponse.Loading -> onLoadingResponse()
+                        is BaseResponse.Error -> onErrorResponse(result.errorMessage)
+                        is BaseResponse.Success -> onSuccessResponse(
+                            crudAction = CRUDAction.UPDATE
+                        ) {}
                     }
                 }
             }

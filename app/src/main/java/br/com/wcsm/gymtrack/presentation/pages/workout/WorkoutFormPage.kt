@@ -1,6 +1,7 @@
 package br.com.wcsm.gymtrack.presentation.pages.workout
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
@@ -27,6 +28,12 @@ fun WorkoutFormPage(
     val uiState by workoutViewModel.uiState.collectAsStateWithLifecycle()
 
     val isWorkoutToUpdate = workout != null
+
+    DisposableEffect(Unit) {
+        onDispose {
+            workoutViewModel.onLeaveWorkoutFormPage()
+        }
+    }
 
     LaunchedEffect(workoutViewModel) {
         workoutViewModel.state.collectLatest { state ->

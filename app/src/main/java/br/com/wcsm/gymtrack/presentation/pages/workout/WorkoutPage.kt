@@ -35,6 +35,10 @@ fun WorkoutPage(
 
     val uiState by workoutViewModel.uiState.collectAsStateWithLifecycle()
 
+    LaunchedEffect(Unit) {
+        println("+++++ WorkoutPage: $workout")
+    }
+
     LaunchedEffect(workoutViewModel) {
         workoutViewModel.state.collectLatest { state ->
             when(state) {
